@@ -1,0 +1,4 @@
+node_modules
+docker/
+.nvmrc
+package-lock.json

@@ -1,0 +1,8 @@
+node_modules
+dist
+coverage
+docs
+tmp
+.serverless
+*.pem
+.DS_Store
