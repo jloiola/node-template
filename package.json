@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-template",
+  "name": "app-runner-koa",
   "version": "0.1.0",
-  "description": "nodejs-template",
+  "description": "app-runner-koa",
   "main": "src/index.js",
   "author": "jloiola",
   "license": "ISC",
@@ -20,15 +20,20 @@
     "prettier": "prettier --write .",
     "docs:build": "jsdoc -r ./src -c jsdoc.json",
     "docs": "open ./docs/index.html",
-    "docker:up": "docker compose up",
-    "docker:build": "docker build -t nodejs-template .",
-    "docker:run": "docker run -it nodejs-template",
-    "docker:shell": "docker run -it --entrypoint /bin/bash nodejs-template"
+    "docker:up": "docker-compose up",
+    "docker:up-build": "docker-compose up --build ",
+    "docker:build": "docker build -t app-runner-koa .",
+    "docker:run": "docker run -p 5000:5000 app-runner-koa",
+    "docker:shell": "docker run -it --entrypoint /bin/bash app-runner-koa"
   },
   "engines": {
     "node": "16.3.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "envalid": "^7.1.0",
+    "koa": "^2.13.1"
+  },
   "devDependencies": {
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",

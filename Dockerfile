@@ -16,7 +16,4 @@ COPY package.json ./
 FROM build as prod
 RUN npm prune --production
 
-ENV PORT=5000
-EXPOSE 5000
-
 CMD [ "npm", "run", "start" ]
