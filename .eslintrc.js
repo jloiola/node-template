@@ -12,7 +12,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:jsdoc/recommended",
-    "plugin:jest/all",
+    "plugin:jest/recommended",
     "plugin:prettier/recommended",
     "plugin:unicorn/recommended",
   ],
