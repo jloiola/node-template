@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >-
+  Sync learner data to Google Sheets which is used as a source for Domo
+
+Transform:
+  - AWS::Serverless-2016-10-31
+
+Resources:
+  SyncDomoFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: Test
+      Runtime: nodejs14.x
+      Handler: src/handlers/sync-domo.handler
+      MemorySize: 128
+      Timeout: 100
+      Environment:
+        Variables:
+          S3_BUCKET_CAREER_URL: "https://transfrvr-career-dev.s3.us-east-2.amazonaws.com/"
+          MYSQL_USER: "{{resolve:secretsmanager:dbdevsecret:SecretString:username}}"
+          MYSQL_PASS: "{{resolve:secretsmanager:dbdevsecret:SecretString:password}}"
+          MYSQL_HOST: "{{resolve:secretsmanager:dbdevsecret:SecretString:host}}"
+          MYSQL_DB: "{{resolve:secretsmanager:dbdevsecret:SecretString:dbname}}"
+      Events:
+        HalfHourSchedule:
+          Type: Schedule
+          Properties:
+            Schedule: cron(*/30 8-22 ? * 2-6 *)
+      Policies:
+        - AWSSecretsManagerGetSecretValuePolicy:
+            SecretArn: arn:aws:secretsmanager:us-east-2:699731646930:secret:dbdevsecret-tWoe2H

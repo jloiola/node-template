@@ -6,3 +6,4 @@ tmp
 .serverless
 *.pem
 .DS_Store
+dev-domo-private-key.json

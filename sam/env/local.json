@@ -1,0 +1,8 @@
+{
+  "SyncDomoFunction": {
+    "MYSQL_HOST": "db-dev.cvolmpanpuek.us-east-2.rds.amazonaws.com",
+    "MYSQL_USER": "main",
+    "MYSQL_PASS": "Learning",
+    "MYSQL_DB": "ebdb"
+  }
+}

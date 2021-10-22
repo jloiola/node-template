@@ -1,7 +1,3 @@
-# Node Template
-
-Providing some boilerplate around tests, lints, docs and workflow hooks
-
 ## Development
 
 ### Tooling

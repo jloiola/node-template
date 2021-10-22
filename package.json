@@ -1,7 +1,7 @@
 {
-  "name": "app-runner-koa",
+  "name": "domo-sync",
   "version": "0.1.0",
-  "description": "app-runner-koa",
+  "description": "domo-sync",
   "main": "src/index.js",
   "author": "jloiola",
   "license": "ISC",
@@ -20,19 +20,19 @@
     "prettier": "prettier --write .",
     "docs:build": "jsdoc -r ./src -c jsdoc.json",
     "docs": "open ./docs/index.html",
-    "docker:up": "docker-compose up",
-    "docker:up-build": "docker-compose up --build ",
-    "docker:build": "docker build -t app-runner-koa .",
-    "docker:run": "docker run -p 5000:5000 app-runner-koa",
-    "docker:shell": "docker run -it --entrypoint /bin/bash app-runner-koa"
+    "syncDomo": "sam local invoke -e sam/events/sync-domo.json --env-vars sam/env/local.json"
   },
   "engines": {
-    "node": "12.21.0"
+    "node": "14.16.1"
   },
   "dependencies": {
+    "axios": "^0.23.0",
     "dotenv": "^10.0.0",
     "envalid": "^7.1.0",
-    "koa": "^2.13.1"
+    "google-auth-library": "^7.10.1",
+    "googleapis": "^39.2.0",
+    "knex": "^0.95.11",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
     "eslint": "^7.19.0",
